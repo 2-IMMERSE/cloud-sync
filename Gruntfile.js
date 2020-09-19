@@ -134,10 +134,10 @@ module.exports = function(grunt) {
         entry: './src/main_node.js',
         output: {
           path: path.resolve("dist/node"),
-          filename: "[name].js",
+          filename: "Synchroniser.js",
           chunkFilename: "chunk-[name]-[chunkhash].js",
-          library: 'cloudSync',
-          libraryTarget: 'var'
+          library: 'Synchroniser',
+          libraryTarget: 'commonjs2'
         },
         module: {
           loaders: []

@@ -29,7 +29,7 @@ const app = express();
 const basicAuth = require('express-basic-auth');
  
 app.use(basicAuth({
-	users: { 'cloudsync': 'supersecret' },
+	users: { 'statsviewer': 'w4llcl0ck$4sync' },
 	challenge: true,
     realm: 'Imb4T3st4pp'
 }));
@@ -278,14 +278,16 @@ try {
 		logger.info("Discovered redis service running on: " + JSON.stringify(services.redis));
 		// console.log(services);
 		
-		// setUpController(services);
+
 
 		statscontroller = new StatsController(services, config);
+		statscontroller.start();
 
 		setUpWebAPI();
 
 		// CRTL-C handler
 		process.on("SIGINT", function() {
+			statscontroller.stop();
 			process.exit();
 		});
 		
@@ -334,16 +336,3 @@ function setUpWebAPI()
 }
 
 
-/**
- * Create a SyncController
- */
-function setUpController() {
-	// console.log(config);
-	statscontroller = new StatsController(services, config);
-}
-	
-
-function cleanUp()
-{
-
-}

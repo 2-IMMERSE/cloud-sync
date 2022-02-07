@@ -23,7 +23,7 @@ services:
       - 2immerse
 
   mqttbroker:
-    image: eclipse-mosquitto
+    image: eclipse-mosquitto:1.6.15
     ports:
       - "1883:1883"
       - "9001:9001"
@@ -37,7 +37,6 @@ services:
       2immerse:
         aliases:
           - mqttbroker.service.consul
-
   redis:
     image: redis:latest
     ports:

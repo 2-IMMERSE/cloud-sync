@@ -1,0 +1,61 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "debug node client master mode",
+			"cwd": "${workspaceFolder}/examples/node-test-client",
+			"runtimeExecutable": "npm",
+			"runtimeArgs": [
+				"run-script",
+				"debug_master"
+			],
+			"port": 9229,
+			"skipFiles": [
+				"<node_internals>/**"
+			]
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "debug node client slave mode",
+			"cwd": "${workspaceFolder}/examples/node-test-client",
+			"runtimeExecutable": "npm",
+			"runtimeArgs": [
+				"run-script",
+				"debug_slave"
+			],
+			"port": 9230,
+			"skipFiles": [
+				"<node_internals>/**"
+			]
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "debug node client equal mode",
+			"cwd": "${workspaceFolder}/examples/node-test-client",
+			"runtimeExecutable": "npm",
+			"runtimeArgs": [
+				"run-script",
+				"debug_equal"
+			],
+			"port": 9231,
+			"skipFiles": [
+				"<node_internals>/**"
+			]
+		},
+		{
+			"name": "Debug StatsController node app in Docker",
+			"type": "node",
+			"request": "attach",
+			"port": 5855,
+			"address": "localhost",
+			"localRoot": "${workspaceFolder}/src/statscontroller/src",
+			"remoteRoot": "/usr/src/statscontroller/src",
+			"protocol": "inspector"
+		}
+	],
+	"compounds": []
+}
